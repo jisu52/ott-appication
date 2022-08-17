@@ -5,6 +5,7 @@ const UserSchema = new Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
     },
     email: {
         type: String,
@@ -15,10 +16,47 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    date: {
-        type: Date,
-        default: Date.now(),
+    first_name:{
+        type: String,
+        required: true,
     },
+    last_name:{
+        type: String,
+        required: true,
+    },
+    middle_name:{
+        type: String,
+    },
+    birthdate:{
+        type: Date,
+        required: true,
+    },
+    country: {
+        type: String,
+        required: true,
+    },
+    pincode: {
+        type: String,
+        required: true,
+    },
+    language: {
+        type: String,
+        required: true,
+    },
+    choices: {
+        type: [String],
+    },
+    created_date:{
+        type: Date,
+        required: true,
+    },
+    updated_date: {
+        type: Date,
+        required: true,
+    },
+    profile_picture:{
+        type: String,
+    }
 });
 
 UserSchema.set('toJSON', {

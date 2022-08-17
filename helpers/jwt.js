@@ -11,7 +11,6 @@ function authenticateToken(req, res, next) {
     if (token == null) return res.sendStatus(401)
 
     jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-        console.log(err)
 
         if (err) return res.sendStatus(403)
         req.user = user
@@ -20,7 +19,7 @@ function authenticateToken(req, res, next) {
 }
 
 function generateAccessToken(username) {
-    return jwt.sign({data: username}, process.env.TOKEN_SECRET, { expiresIn: '1h' });
+    return jwt.sign({data: username}, process.env.TOKEN_SECRET, { expiresIn: '24h' });
 }
 
 module.exports = {
